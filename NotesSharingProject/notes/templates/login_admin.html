@@ -1,0 +1,30 @@
+{% extends 'navigation.html' %}
+{% load static %}
+{% block body %}
+
+
+<div class="container mt-5 " style="background-color: whitesmoke">
+	<div class="row">
+		<div class="col-sm-6">
+			
+			<img src="{% static 'images/admin.png' %}" class="img-thumbnail my-2" style="width: 100%;height: 345px">
+		</div>
+		<div class="col-sm-6">
+			<h2 class="text-center">Admin Login</h2>
+			<HR>
+			<p>Enter your Username and Password to access admin panel</p>
+			
+			<form method="post">
+				{% csrf_token %}
+				<label>Username</label>
+				<input type="email" class="form-control" placeholder="enter username" name="uname">
+				<label>Password</label>
+				<input type="Password" class="form-control" placeholder="enter Password" name="pw">
+				<input type="submit" class="btn btn-danger mt-2000" value="login" >
+			</form>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

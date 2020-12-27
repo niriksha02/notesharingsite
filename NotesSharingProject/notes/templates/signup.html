@@ -1,0 +1,50 @@
+{% extends 'navigation.html' %}
+{% load static %}
+{% block body %}
+
+
+<div class="container mt-5">
+	<div class="row">
+		<div class="col-sm-6">
+			<h2 class="text-center">Existing Customer</h2>
+			<HR>
+			<p>By creating an account,you will be able to move the notes by uploading,downloading process and more</p>
+			<a href="{% url 'login' %}" class="btn btn-danger text-white text-center mt-5">login</a>
+		</div>
+		<div class="col-sm-6">
+			<h2 class="text-center">Register</h2>
+			<HR>
+			<form method="post">
+				{% csrf_token %}
+				<label>First Name</label>
+				<input type="text" class="form-control" placeholder="enter first name" name="firstname">
+				<label>Last Name</label>
+				<input type="text" class="form-control" placeholder="enter lastname" name="lastname">
+				<label>Contact Number</label>
+				<input type="text" class="form-control" placeholder="enter contact number" name="contact">
+				<label>Email id</label>
+				<input type="email" class="form-control" placeholder="enter email id" name="emailid">
+				<label>Password</label>
+				<input type="password" class="form-control" placeholder="enter password" name="password">
+				<label>Branch</label>
+				<select class="form-control" name="Branch">
+					<option value="Computer Science">Computer Science</option>
+					<option value="Information Science">Information Science</option>
+					<option value="Electronics">Electronics</option>
+					<option value="Electrical">Electrical</option>
+					<option value="Civil">Civil</option>
+					<option value="Mechanical">Mechanical</option>
+				</select>
+				<label>Role</label>
+				<select class="form-control" name="Branch">
+					<option value="Student">Student</option>
+					<option value="Teacher">Teacher</option>
+				</select>
+				<input type="submit" class="btn btn-danger mt-2000" value="Submit" >
+			</form>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

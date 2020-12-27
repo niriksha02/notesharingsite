@@ -1,0 +1,30 @@
+{% extends 'navigation.html' %}
+{% load static %}
+{% block body %}
+
+
+<div class="container mt-5">
+	<div class="row">
+		<div class="col-sm-6">
+			<h2 class="text-center">New Customer</h2>
+			<HR>
+			<p>By creating an account,you will be able to move the notes by uploading,downloading process and more</p>
+			<a href="{% url 'signup' %}" class="btn btn-danger text-white text-center mt-5">Create an account</a>
+		</div>
+		<div class="col-sm-6">
+			<h2 class="text-center">User Login</h2>
+			<HR>
+			<form method="post">
+				{% csrf_token %}
+				<label>Email Address</label>
+				<input type="email" class="form-control" placeholder="enter email-id" name="emailid">
+				<label>Password</label>
+				<input type="Password" class="form-control" placeholder="enter Password" name="pw">
+				<input type="submit" class="btn btn-danger mt-2000" value="login" >
+			</form>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

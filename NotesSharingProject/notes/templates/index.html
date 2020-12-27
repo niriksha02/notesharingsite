@@ -1,0 +1,51 @@
+{% extends 'navigation.html' %}
+{% block body %}
+
+{% load static %}
+
+<style>
+
+.image{
+	width: 100%;
+	height: 470px;
+	background: url({% static 'images/onenew.jpg' %})
+	
+
+}
+</style>
+<div class="image">
+	<div class="transparentbox">
+		<p>StudyNotesSharingStite</p>
+	</div>
+	
+</div>
+<h4 class="text-center text-danger mt-4 mb-4">StartSharing</h4>
+<div class="container mt-5">
+	<div class="row">
+		<div class="col-sm-3" >
+			<div class="box1">
+				<p class="halfcircle"><i class="fas fa-user-circle mt-4" style="font-size: 40px"></i></p>
+				<p class="halfcirclebottom " style="font-size: 20px">create account </p>
+			</div>
+		</div>
+		<div class="col-sm-3" >
+			<div class="box1">
+				<p class="halfcircle"><i class="fas fa-sign-in-alt mt-4" style="font-size: 40px"></i></p>
+				<p class="halfcirclebottom " style="font-size: 20px">Login </p>
+			</div>
+		</div>
+		<div class="col-sm-3" >
+			<div class="box1">
+				<p class="halfcircle"><i class="fas fa-upload mt-4" style="font-size: 40px"></i></p>
+				<p class="halfcirclebottom " style="font-size: 20px">Upload Notes </p>
+			</div>
+		</div>
+		<div class="col-sm-3" >
+			<div class="box1">
+				<p class="halfcircle"><i class="fas fa-download mt-4" style="font-size: 40px"></i></p>
+				<p class="halfcirclebottom " style="font-size: 20px">Download Notes </p>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
