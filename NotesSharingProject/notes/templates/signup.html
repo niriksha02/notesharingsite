@@ -27,7 +27,7 @@
 				<label>Password</label>
 				<input type="password" class="form-control" placeholder="enter password" name="password">
 				<label>Branch</label>
-				<select class="form-control" name="Branch">
+				<select class="form-control" name="branch">
 					<option value="Computer Science">Computer Science</option>
 					<option value="Information Science">Information Science</option>
 					<option value="Electronics">Electronics</option>
@@ -36,15 +36,34 @@
 					<option value="Mechanical">Mechanical</option>
 				</select>
 				<label>Role</label>
-				<select class="form-control" name="Branch">
+				<select class="form-control" name="role">
 					<option value="Student">Student</option>
 					<option value="Teacher">Teacher</option>
 				</select>
-				<input type="submit" class="btn btn-danger mt-2000" value="Submit" >
+				<input type="submit" class="btn btn-danger mt-2" value="Submit" >
 			</form>
 		</div>
 	</div>
 </div>
 
+{% ifequal error "no" %}
+<script >
+	alert('Sign UP successfully');
+	window.location=('{% url 'login' %}');
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+	alert('Something went wrong,Try again');
+</script>
+{% endifequal %}
+
+
+
 
 {% endblock %}
+
+
+
+

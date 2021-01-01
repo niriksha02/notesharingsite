@@ -2,6 +2,21 @@
 {% load static %}
 {% block body %}
 
+{% ifequal error "no" %}
+<script >
+	alert('Logged In successfully');
+	window.location=('{% url 'profile' %}');
+</script>>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+	alert('Invalid Login Credentials,Try again');
+</script>
+{% endifequal %}
+
+
+
 
 <div class="container mt-5">
 	<div class="row">
@@ -19,7 +34,7 @@
 				<label>Email Address</label>
 				<input type="email" class="form-control" placeholder="enter email-id" name="emailid">
 				<label>Password</label>
-				<input type="Password" class="form-control" placeholder="enter Password" name="pw">
+				<input type="Password" class="form-control" placeholder="enter Password" name="pwd">
 				<input type="submit" class="btn btn-danger mt-2000" value="login" >
 			</form>
 		</div>

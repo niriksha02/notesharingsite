@@ -1,0 +1,78 @@
+{% extends 'usernavigation.html' %}
+{% load static %}
+{% block body %}
+
+
+<div class="container mt-5">
+	<h2 class="text-center">Upload Notes</h2>
+			<HR>
+	<div class="row">
+				<div class="col-sm-6">
+			
+			<form method="post" enctype="multipart/form-data">
+				{% csrf_token %}
+				<label>Branch</label>
+				<select class="form-control" name="branch">
+					<option value ="">----Select Branch----</option>
+					
+					<option value="Computer Science">Computer Science</option>
+					<option value="Information Science">Information Science</option>
+					<option value="Electronics">Electronics</option>
+					<option value="Electrical">Electrical</option>
+					<option value="Civil">Civil</option>
+					<option value="Mechanical">Mechanical</option>
+					
+				</select>
+				
+				<label>Subject</label>
+				<input type="text" class="form-control" placeholder="enter subject" name="subject">
+				<label>Notes File</label>
+				<input type="file" class="form-control" name="notesfile">
+				<label>File Type</label>
+				<select class="form-control" name="filetype">
+					<option value ="">----Select filetype----</option>
+					
+					<option value="pdf">pdf</option>
+					<option value="ppt">ppt</option>
+					<option value="img">img</option>
+					<option value="txt">txt</option>
+					<option value="docx">docx</option>
+					<option value="zip/rar">zip/rar</option>
+				</select>
+				<label>Description</label>
+				<textarea class="form-control" name="description">
+					
+				</textarea>
+				
+				<input type="submit" class="btn btn-danger mt-2" value="Submit" >
+			</form>
+		</div>
+		<div class="col-sm-6">
+			
+			<img src="{% static 'images/upload_notes.jfif' %}" style="width: 90%;height: 400px">
+		</div>
+
+	</div>
+</div>
+
+{% ifequal error "no" %}
+<script >
+	alert('Notes Uploaded successfully');
+	window.location=('{% url 'view_mynotes' %}');
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+	alert('Something went wrong,Try again');
+</script>
+{% endifequal %}
+
+
+
+
+{% endblock %}
+
+
+
+
