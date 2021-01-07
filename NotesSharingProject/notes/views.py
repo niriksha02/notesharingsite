@@ -86,6 +86,26 @@ def admin_home(request):
 	d={'pn':pn,'an':an,'rn':rn,'alln':alln}
 	return render(request,'admin_home.html',d)
 
+def teacherhome(request):
+	if not request.user.is_staff:
+		return redirect('teacherslogin')
+	pn=Notes.objects.filter(status="pending").count()
+	an=Notes.objects.filter(status="Accept").count()
+	rn=Notes.objects.filter(status="Reject").count()
+	alln=Notes.objects.all().count()
+	d={'pn':pn,'an':an,'rn':rn,'alln':alln}
+	return render(request,'teacherhome.html',d)
+
+def reviewnotes(request):
+	
+	pn=Notes.objects.filter(status="pending").count()
+	an=Notes.objects.filter(status="Accept").count()
+	rn=Notes.objects.filter(status="Reject").count()
+	alln=Notes.objects.all().count()
+	d={'pn':pn,'an':an,'rn':rn,'alln':alln}
+	return render(request,'reviewnotes.html',d)
+
+
 
 
 
@@ -310,6 +330,23 @@ def viewallnotes(request):
 
 	return render(request,'viewallnotes.html',d)
 
+
+def teacherslogin(request):
+	error=""
+	if request.method == 'POST':
+		u=request.POST['emailid']
+		p=request.POST['pwd']
+		user=authenticate(username=u,password=p)
+		try:
+			if user:
+				login(request,user)
+				error="no"
+			else:
+				error="yes"
+		except:
+			error="yes"
+	d={'error':error}
+	return render(request,'teacherslogin.html',d)
 
 
 
